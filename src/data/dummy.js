@@ -497,27 +497,27 @@ export const links = [
       },
     ],
   },
-  {
-    title: 'Apps',
-    links: [
-      {
-        name: 'calendar',
-        icon: <AiOutlineCalendar />,
-      },
-      // {
-      //   name: 'kanban',
-      //   icon: <BsKanban />,
-      // },
-      // {
-      //   name: 'editor',
-      //   icon: <FiEdit />,
-      // },
-      // {
-      //   name: 'color-picker',
-      //   icon: <BiColorFill />,
-      // },
-    ],
-  },
+  // {
+  //   title: 'Apps',
+  //   links: [
+  //     {
+  //       name: 'calendar',
+  //       icon: <AiOutlineCalendar />,
+  //     },
+  //     {
+  //       name: 'kanban',
+  //       icon: <BsKanban />,
+  //     },
+  //     {
+  //       name: 'editor',
+  //       icon: <FiEdit />,
+  //     },
+  //     {
+  //       name: 'color-picker',
+  //       icon: <BiColorFill />,
+  //     },
+  //   ],
+  // },
   // {
   //   title: 'Charts',
   //   links: [
