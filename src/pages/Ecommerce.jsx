@@ -1,32 +1,39 @@
-import React from 'react';
-import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
+import React from "react";
+import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 
-import { Button } from '../components';
-import { recentTransactions, dropdownData } from '../data/dummy';
-import { useStateContext } from '../contexts/ContextProvider';
-import List from './List/List';
-import Calander from './Calendar'
+import { Button } from "../components";
+import { recentTransactions, dropdownData } from "../data/dummy";
+import { useStateContext } from "../contexts/ContextProvider";
+import List from "./List/List";
+import Calander from "./Calendar";
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
-    <DropDownListComponent id="time" fields={{ text: 'Time', value: 'Id' }} style={{ border: 'none', color: (currentMode === 'Dark') && 'white' }} value="1" dataSource={dropdownData} popupHeight="220px" popupWidth="120px" />
+    <DropDownListComponent
+      id="time"
+      fields={{ text: "Time", value: "Id" }}
+      style={{ border: "none", color: currentMode === "Dark" && "white" }}
+      value="1"
+      dataSource={dropdownData}
+      popupHeight="220px"
+      popupWidth="120px"
+    />
   </div>
 );
 
 const Ecommerce = () => {
   const { currentColor, currentMode } = useStateContext();
-
   return (
     <div className="mt-24 flex justify-center">
       <div className="flex gap-10 m-4 flex-wrap justify-center">
-         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div>
-           <List />
-           {/* <Calander/> */}
-         </div>
+            <List />
+            {/* <Calander/> */}
+          </div>
         </div>
-       </div>
-   
+      </div>
+
       {/* <div className="flex flex-wrap lg:flex-nowrap justify-center ">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center">
@@ -45,7 +52,7 @@ const Ecommerce = () => {
            </div>
      </div> */}
       <div className="flex gap-10 m-4 flex-wrap justify-center">
-    <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div className="flex justify-between items-center gap-2">
             <p className="text-xl font-semibold">Recent Transactions</p>
             <DropDown currentMode={currentMode} />
@@ -86,8 +93,7 @@ const Ecommerce = () => {
             <p className="text-gray-400 text-sm">36 Recent Transactions</p>
           </div>
         </div>
-  </div>
-     
+      </div>
     </div>
   );
 };

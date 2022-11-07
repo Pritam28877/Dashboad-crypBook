@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import CourseGoalList from './components/CourseGoals/CourseGoalList/CourseGoalList';
-import CourseInput from './components/CourseGoals/CourseInput/CourseInput';
-import './List.css';
+import CourseGoalList from "./components/CourseGoals/CourseGoalList/CourseGoalList";
+import CourseInput from "./components/CourseGoals/CourseInput/CourseInput";
+import "./List.css";
+import { useStateContext } from "../../contexts/ContextProvider";
 
 const List = () => {
   const [courseGoals, setCourseGoals] = useState([
-    { text: 'Do all exercises!', id: 'g1' },
-    { text: 'Finish the course!', id: 'g2' }
+    { text: "Do all exercises!", id: "g1" },
+    { text: "Finish the course!", id: "g2" },
   ]);
+  const { ecommerceScreen, setEcommerceScreen } = useStateContext();
 
   const addGoalHandler = (enteredText) => {
     setCourseGoals((prevGoals) => {
@@ -26,7 +28,7 @@ const List = () => {
   };
 
   let content = (
-    <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
+    <p style={{ textAlign: "center" }}>No goals found. Maybe add one?</p>
   );
 
   if (courseGoals.length > 0) {
@@ -34,24 +36,25 @@ const List = () => {
       <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
     );
   }
-
-  return (
-    <div>
-      <section id="goal-form">
-        <CourseInput onAddGoal={addGoalHandler} />
-      </section>
-      <section id="goals">
-        {content}
-        {/* {courseGoals.length > 0 && (
+  if (ecommerceScreen === "main")
+    return (
+      <div>
+        <section id="goal-form">
+          <CourseInput onAddGoal={addGoalHandler} />
+        </section>
+        <section id="goals">
+          {content}
+          {/* {courseGoals.length > 0 && (
           <CourseGoalList
             items={courseGoals}
             onDeleteItem={deleteItemHandler}
           />
         ) // <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
         } */}
-      </section>
-    </div>
-  );
+        </section>
+      </div>
+    );
+  if (ecommerceScreen === "x") return <div></div>;
 };
 
 export default List;
