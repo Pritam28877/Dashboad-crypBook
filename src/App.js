@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import Lenden from "./components/Lenden";
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Ecommerce, Orders, Calendar, Employees, Customers, Kanban, ColorPicker, Editor } from './pages';
@@ -67,6 +68,9 @@ const App = () => {
                 {/* dashboard  */}
                 <Route path="/" element={(<Ecommerce />)} />
                 <Route path="/ecommerce" element={(<Ecommerce />)} />
+                <Route path="/ecommerce/:id" element={(<Calendar />)} />
+                {/** CREATE A DYNAMIC ROUTE FOR LENDEN */}
+                <Route path="/lenden/:id" element={(<Lenden />)} />
 
                 {/* pages  */}
                 {/* <Route path="/orders" element={<Orders />} />
